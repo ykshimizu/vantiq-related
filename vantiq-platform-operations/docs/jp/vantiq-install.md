@@ -22,19 +22,20 @@ kubectl コマンドの簡易的な使い方については[kubectlコマンド�
 # 初回構築作業 (Quick Reference)<a id="quick_reference"></a>
 
 ### 事前準備 (アクセス権限等)<a id="preparation_access_permissions"></a>
-- SSL 証明書ファイル (お客様にてご用意いただくもの)
-- 有効な Vantiq License ファイル (`license.key`、`public.pem`) ([Vantiq Support, Vantiq担当より取得ください](./how_to_request_license.md))
-- DNS Zone の管理権限、もしくは即時対応可能な更新依頼先 (Customer より入手)  
+- SSL 証明書ファイルとPrivate Key (お客様)
+- 有効な Vantiq License ファイル (`license.key`、`public.pem`) ([Vantiq担当より取得ください](./how_to_request_license.md))
+- DNS Zone の管理権限、もしくは即時対応可能な更新依頼先 (お客様)  
    DNS 管理者が外部の方の場合、事前に相談しておくこと  
    既存の zone であれば、15分程度で有効になる(実際には数分で有効になるはず)  
    新規の zone であれば、最大 48時間程度かかることになる  
-- `k8sdeploy_tools`、`k8sdeploy` リポジトリへのアクセス権限 (Vantiq Support より入手)
-- `k8sdeploy_clusters_jp` リポジトリへのアクセス権限 (JapanVirtualSRE より入手。Vantiq社内管理の場合のみ。)
-- *quay.io* への vantiq リポジトリへのアクセス権限 (Vantiq Support より入手)
-- SMTPサービスのエンドポイント、および資格情報
+- お客様管理のGitHubアカウント (お客様)
+   上記アカウントに対する`k8sdeploy_tools`、`k8sdeploy` リポジトリへのアクセス権限付与 (Vantiq Support)
+   上記アカウントにて管理するプライベートリポジトリ (お客様)
+   Vantiq管理の場合は、`k8sdeploy_clusters_jp` リポジトリへのアクセス権限 (Vantiq Support)
+- *quay.io* への vantiq リポジトリへのアクセス権限を持つRobotアカウント (Vantiq Support)
+- SMTPサービスのエンドポイント、および資格情報 (お客様)
 - APNs認証キー、FCM用アクセストークン（iOS, AndroidのVantiq Mobileを使用する場合のみ）
-- 踏み台サーバのIPアドレス、ユーザー名、ssh秘密鍵（本記事のこれ以降の作業は踏み台サーバ上で行うことを想定する。）
-- 作業対象のkubernetesクラスタへのアクセス権  
+- AWS/Azureのアカウントを払い出してもらい、作業対象のkubernetesクラスタへのアクセス権を有する適切な
   EKSの場合はAWS CLIのセットアップが必要
 
 
